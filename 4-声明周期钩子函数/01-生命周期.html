@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        {{count}}
+        <button @click="count++">赞</button>
+        <h1>张三,有{{count}}人点赞</h1>
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                count: 1
+            },
+            beforeCreate() {
+                console.log("===========beforeCreate===========");
+                console.log("数据模型未加载");
+                console.log("方法未加载");
+                console.log("html模型未加载");
+            },
+            created() {
+                console.log("===========created===========");
+                console.log("数据模型已加载");
+                console.log("方法已加载");
+                console.log("html模型已加载");
+                console.log("html模板未渲染");
+            },
+            beforeMount() {
+                console.log("===========beforeMount===========");
+                console.log("html模板未渲染");
+            },
+            mounted() {
+                console.log("===========mounted===========");
+                console.log("html模板已渲染");
+            },
+            beforeUpdate() {
+                console.log("===========beforeUpdate===========");
+                console.log("数据模型已更新");
+                console.log("html模板未更新");
+            },
+            updated() {
+                console.log("===========updated===========");
+                console.log("数据模型已更新");
+                console.log("html模板已更新");
+            },
+
+        });
+    </script>
+</body>
+
+</html>

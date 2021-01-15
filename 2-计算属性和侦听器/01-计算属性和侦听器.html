@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <ul>
+            <li>西游记；价格：{{xyjPrice}}，数量：<input type="number" v-model="xyjNum"></li>
+            <li>水浒传；价格：{{shzPrice}}，数量：<input type="number" v-model="shzNum"></li>
+            <li>总价：{{totalPrice}}</li>
+            <h1 style="color: red;"></h1>{{msg}}
+        </ul>
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                xyjPrice: 100.0,
+                xyjNum: 0,
+                shzPrice: 99.99,
+                shzNum: 0,
+                msg: ""
+            },
+            computed: {
+                //计算属性中使用到的任何变量的值发生变化时，都会引起计算属性的重新计算
+                totalPrice() {
+                    return this.xyjPrice * this.xyjNum + this.shzNum * this.shzPrice;
+                }
+            },
+            watch: {
+                xyjNum(newVal, oldVal) {
+                    if (newVal >= 3) {
+                        this.msg = "单种商品不能超过3件";
+                        this.xyjNum = 3;
+                    }
+                    else {
+                        this.msg = "";
+                    }
+                    console.log("xyjNum changed newVal =" + newVal + " oldVal = " + oldVal);
+                },
+                shzNum(newVal, oldVal) {
+                    if (newVal >= 3) {
+                        this.msg = "单种商品不能超过3件";
+                        this.shzNum = 3;
+                    }
+                    else {
+                        this.msg = "";
+                    }
+                    console.log("shzNum changed newVal =" + newVal + " oldVal = " + oldVal);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

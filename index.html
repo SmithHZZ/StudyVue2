@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="number" v-model="num">
+        <button v-on:click="num++">上线</button>
+        <button v-on:click="cancel()">下线</button>
+        <h1>{{name}},你好,有{{num}}个人在线</h1>
+    </div>
+
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                name:"张三",
+                num:1
+            },
+            methods:{
+                cancel() {
+                    this.num--;
+                }
+            }
+        });
+
+        //双向绑定，模型变化。视图变化，反之亦然
+
+        //事件处理
+
+        //v-xx:指令
+
+
+        //1、创建vue实例，关联页面的模板，将自己的数据渲染到关联的模板，响应式
+        //2、指令简化dom操作
+        //3、声明方法来做更复杂的操作
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        v-if为真时才被渲染，v-show为真时才被显示<br/>
+        <button v-on:click="show = !show">Click Me</button>
+        <h1 v-if="show">if=看到我</h1>
+        <h1 v-show="show">show=看到我</h1>
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                show:true,
+            }
+        });
+    </script>
+</body>
+</html>
